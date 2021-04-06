@@ -53,11 +53,13 @@ function sumInput(){
 
     let valuesArray = [];
 
-    do{
+    while (true) {
         inputValue = prompt("Ввелите число", 0);
-        valuesArray.push(+inputValue);
-    }while(inputValue != null)
 
+        if (inputValue == null || inputValue == "" || !isFinite(inputValue)) break;
+
+        valuesArray.push(+inputValue);
+    }
     alert(getSummFromElementsOfArray(valuesArray));
 }
 
