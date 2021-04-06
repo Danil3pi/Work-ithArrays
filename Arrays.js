@@ -1,15 +1,15 @@
 "use strict"
-let arr_1 = [1, 3, 4];
-let arr_2 = arr_1;
+// let arr_1 = [1, 3, 4];
+// let arr_2 = arr_1;
 
-arr_2.push(78);
+// arr_2.push(78);
 
 
 // плохо, если с массивом работать как с обычным объектом
 
-for ( let i = 0; i < 10e1; i++) {
-    arr_1[i] = +(Math.random() * 10).toFixed();
-}
+// for ( let i = 0; i < 10e1; i++) {
+//     arr_1[i] = +(Math.random() * 10).toFixed();
+// }
 
 // for(let item of arr_2) {
 //     console.log( item );
@@ -39,16 +39,28 @@ for ( let i = 0; i < 10e1; i++) {
 // styles.unshift("Рэп", "Регги")
 // console.log(styles);
 
+function getSummFromElementsOfArray( values ){
+    let summ = 0;
+
+    for (let val of values)
+        summ += val;
+    
+    return summ;
+}
+
 function sumInput(){
     let inputValue;
 
+    let valuesArray = [];
+
     do{
         inputValue = prompt("Ввелите число", 0);
-        alert(inputValue);
+        valuesArray.push(+inputValue);
     }while(inputValue != null)
+
+    alert(getSummFromElementsOfArray(valuesArray));
 }
 
-
-
+sumInput();
 
 
