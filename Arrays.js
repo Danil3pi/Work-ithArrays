@@ -56,13 +56,29 @@ function sumInput(){
     while (true) {
         inputValue = prompt("Ввелите число", 0);
 
-        if (inputValue == null || inputValue == "" || !isFinite(inputValue)) break;
+        if (inputValue === null || inputValue === "" || isNaN(+inputValue)) break;
 
         valuesArray.push(+inputValue);
     }
     alert(getSummFromElementsOfArray(valuesArray));
 }
 
-sumInput();
+function getMaxSubSum(array) {
+    let maxSum = 0;
 
+    for (let i = 0; i < array.length; i++) {
+        let currentSum = 0;
+        for(let j = i; j < array.length; j++) {
+            currentSum += array[j];
+            maxSum = Math.max(maxSum, currentSum);
+        }
+    }
 
+    return maxSum;
+}
+
+console.log( getMaxSubSum([-1, 2, 3, -9]) ); // 5
+console.log( getMaxSubSum([-1, 2, 3, -9, 11]) ); // 11
+console.log( getMaxSubSum([-2, -1, 1, 2]) ); // 3
+console.log( getMaxSubSum([1, 2, 3]) ); // 6
+console.log( getMaxSubSum([100, -9, 2, -3, 5]) ); // 100
